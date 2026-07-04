@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Parth Lad — Project Inquiry</title>
+    <meta name="description" content="Send a project inquiry to Parth Lad — full-stack developer and ML engineer available for freelance and full-time opportunities.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body class="inquiry-body">
+
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+
+    <div class="inquiry-container">
+        <div class="inquiry-header">
+            <h2>Hire <span>Parth</span></h2>
+            <p>Send a project inquiry and let's work together</p>
+        </div>
+
+        <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+            <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="project_name" class="form-control" placeholder="Project Name" required>
+                <i class="fas fa-briefcase"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required>
+                <i class="fas fa-phone-alt"></i>
+            </div>
+
+            <div class="form-group">
+                <textarea id="requirements" class="form-control" placeholder="Requirement Details..." required></textarea>
+                <i class="fas fa-file-alt"></i>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Inquiry</button>
+        </form>
+    </div>
+
+    <!-- Confirmation Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Inquiry Sent!</h3>
+            <p>Thank you for reaching out! Parth will review your project requirements and get in touch with you shortly.</p>
+            <button class="close-modal-btn" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

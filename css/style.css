@@ -1,0 +1,1923 @@
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* all similar content styling codes */
+section {
+    padding: 100px 0;
+}
+
+.max-width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+.about,
+.projects,
+.skills,
+.certs,
+.contact,
+footer {
+    font-family: 'Poppins', sans-serif;
+}
+
+.about .about-content,
+.projects .proj-content,
+.skills .skills-content,
+.contact .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .title {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+section .title::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: #111;
+    transform: translateX(-50%);
+}
+
+section .title::after {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    font-size: 20px;
+    color: blue;
+    padding: 0 5px;
+    background: #fff;
+    transform: translateX(-50%);
+}
+
+/* navbar styling */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 25px 0;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar.sticky {
+    padding: 15px 0;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.navbar .logo a span {
+    color: #1d4ed8;
+    transition: all 0.3s ease;
+}
+
+.navbar.sticky .logo a span {
+    color: #1d4ed8;
+}
+
+.navbar .menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu li a {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+    color: #3b82f6;
+}
+
+.navbar.sticky .menu li a:hover {
+    color: #3b82f6;
+}
+
+/* menu btn styling */
+.menu-btn {
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-up-btn {
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: blue;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.scroll-up-btn.show {
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-up-btn:hover {
+    filter: brightness(90%);
+}
+
+
+/* home section styling */
+.home {
+    display: flex;
+    background: url("../images/backpic.jpg") no-repeat center;
+    height: 150vh;
+    color: #0e0404ce;
+    min-height: 400px;
+
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.home .max-width {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.home .max-width .row {
+    margin-right: 0;
+}
+
+.home .home-content .text-1 {
+    font-size: 27px;
+}
+
+.home .home-content .text-2 {
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+
+.home .home-content .text-3 {
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.home .home-content .text-3 span {
+    color: blue;
+    font-weight: 500;
+}
+
+.home .home-content a {
+    display: inline-block;
+    background: blue;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 2px solid blue;
+    transition: all 0.3s ease;
+}
+
+.home .home-content a:hover {
+    color: blue;
+    background: none;
+}
+
+/* about section styling */
+.about .title::after {
+    content: "who i am";
+}
+
+.about .about-content .left {
+    width: 45%;
+}
+
+.about .about-content .left img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.about .about-content .right {
+    width: 55%;
+}
+
+.about .about-content .right .text {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.about .about-content .right .text span {
+    color: blue;
+}
+
+.about .about-content .right p {
+    text-align: justify;
+    line-height: 1.75;
+}
+
+/* About section — CV button row */
+.about-cv-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* Outlined cert-btn variant used in About */
+.cert-btn-outline {
+    background: transparent !important;
+    color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+}
+
+.cert-btn-outline:hover {
+    background: #1d4ed8 !important;
+    color: #fff !important;
+}
+
+
+/* projects section styling */
+.projects,
+.certs {
+    color: #fff;
+    background: #111;
+}
+
+.projects .title::before,
+.certs .title::before {
+    background: #fff;
+}
+
+.projects .title::after {
+    background: #111;
+    content: "what i built";
+}
+
+.certs .title::after {
+    background: #111;
+    content: "my achievements";
+}
+
+.projects .proj-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.projects .proj-content .card {
+    width: calc(33.333% - 17px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 35px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects .proj-content .card:hover {
+    background: #1d4ed8;
+}
+
+.projects .proj-content .card .box {
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.projects .proj-content .card:hover .box {
+    transform: scale(1.05);
+}
+
+.projects .proj-content .card i {
+    font-size: 50px;
+    color: #1d4ed8;
+    transition: color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.projects .proj-content .card:hover i {
+    color: #fff;
+}
+
+.projects .proj-content .card .text {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+}
+
+.projects .proj-content .card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.projects .proj-content .card:hover p {
+    color: #fff;
+}
+
+.projects .proj-content .card .tech-stack {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.projects .proj-content .card .tech-stack span {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #ccc;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.projects .proj-content .card:hover .tech-stack span {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* ---- Skill Categories (replaces old progress bars) ---- */
+.skills .skills-content {
+    align-items: flex-start;
+}
+
+.skills .skills-content .column {
+    width: calc(40% - 20px);
+}
+
+.skills .skills-content .column.skill-categories {
+    width: calc(60% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skills .skills-content .left .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.skills .skills-content .left p {
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.skill-category {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skill-category:hover {
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.1);
+    transform: translateY(-2px);
+}
+
+.skill-category-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1d4ed8;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-category-title i {
+    font-size: 13px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tags span {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    color: #374151;
+    transition: all 0.25s ease;
+    cursor: default;
+}
+
+.skill-tags span:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(29, 78, 216, 0.25);
+}
+
+/* certifications section styling */
+.certs {
+    color: #fff;
+    background: #111;
+}
+
+.certs .certs-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.certs .certs-content .card {
+    width: calc(33.333% - 17px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 35px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.certs .certs-content .card:hover {
+    background: #1d4ed8;
+}
+
+.certs .certs-content .card .box {
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.certs .certs-content .card:hover .box {
+    transform: scale(1.05);
+}
+
+.certs .certs-content .card i {
+    font-size: 50px;
+    color: #1d4ed8;
+    transition: color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.certs .certs-content .card:hover i {
+    color: #fff;
+}
+
+.certs .certs-content .card .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.certs .certs-content .card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.certs .certs-content .card:hover p {
+    color: #fff;
+}
+
+.certs .certs-content .card p .date {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: rgba(29, 78, 216, 0.15);
+    padding: 3px 10px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.certs .certs-content .card:hover p .date {
+    color: #1d4ed8;
+    background: #fff;
+}
+
+.certs .certs-content .card .cert-btn {
+    display: inline-block;
+    margin-top: auto;
+    padding: 8px 18px;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #1d4ed8;
+}
+
+.certs .certs-content .card:hover .cert-btn {
+    background: #fff;
+    color: #1d4ed8;
+    border-color: #fff;
+}
+
+.certs .certs-content .card .cert-btn i {
+    font-size: 11px;
+    color: inherit;
+    background: none;
+    padding: 0;
+    margin-left: 5px;
+    border-radius: 0;
+    display: inline;
+}
+
+.certs .certs-content .card:hover .cert-btn i {
+    background: none;
+    color: inherit;
+}
+
+
+
+/* skills title after pseudo */
+.skills .title::after {
+    content: "what i know";
+}
+
+/* ================================================
+   Resume Section
+   ================================================ */
+.resume {
+    color: #fff;
+    background: #111;
+    font-family: 'Poppins', sans-serif;
+}
+
+.resume .title::before {
+    background: #fff;
+}
+
+.resume .title::after {
+    content: "full cv";
+    background: #111;
+    color: #1d4ed8;
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Toolbar: date badge left, download button right */
+.resume-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    background: #222;
+    border-radius: 8px;
+    padding: 14px 20px;
+}
+
+/* .date pill — identical to certs section, overriding background for dark context */
+.resume .date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: rgba(29, 78, 216, 0.15);
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+/* Inline PDF viewer container */
+.resume-viewer {
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.resume-object {
+    display: block;
+    width: 100%;
+    height: 780px;
+    border: none;
+}
+
+/* Mobile fallback — hidden on desktop, shown at <=690px */
+.resume-mobile-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 50px 24px;
+    background: #222;
+    border-radius: 8px;
+    text-align: center;
+    color: #aaa;
+}
+
+.resume-mobile-fallback i {
+    font-size: 48px;
+    color: #ef4444;
+}
+
+.resume-mobile-fallback p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Text-only last-resort fallback inside object/iframe */
+.resume-no-support {
+    color: #aaa;
+    text-align: center;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+/* contact section styling */
+.contact .title::after {
+    content: "get in touch";
+}
+
+/* Availability bar */
+.availability-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1.5px solid rgba(16, 185, 129, 0.4);
+    border-radius: 30px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.avail-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: pulse-green 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
+    50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1); }
+}
+
+.avail-label {
+    color: #059669;
+    font-weight: 600;
+}
+
+/* Response meta chips */
+.response-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0 18px;
+}
+
+.response-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.response-chip i {
+    color: #1d4ed8;
+    font-size: 13px;
+}
+
+/* Calendly booking button */
+.calendly-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 24px;
+    background: #1d4ed8;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid #1d4ed8;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+}
+
+.calendly-btn:hover {
+    background: transparent;
+    color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.2);
+}
+
+.contact .contact-content .column {
+    width: calc(50% - 30px);
+}
+
+.contact .contact-content .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact .contact-content .left p {
+    text-align: justify;
+}
+
+.contact .contact-content .left .icons {
+    margin: 10px 0;
+}
+
+.contact .contact-content .row {
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+
+.contact .contact-content .row .info {
+    margin-left: 30px;
+}
+
+.contact .contact-content .row i {
+    font-size: 25px;
+    color: blue;
+}
+
+.contact .contact-content .info .head {
+    font-weight: 500;
+}
+
+.contact .contact-content .info .sub-title {
+    color: #333;
+}
+
+.contact .right form .fields {
+    display: flex;
+}
+
+.contact .right form .field,
+.contact .right form .fields .field {
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contact .right form .textarea {
+    height: 80px;
+    width: 100%;
+}
+
+.contact .right form .name {
+    margin-right: 10px;
+}
+
+.contact .right form .field input,
+.contact .right form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus {
+    border-color: #b3b3b3;
+}
+
+.contact .right form .textarea textarea {
+    padding-top: 10px;
+    resize: none;
+}
+
+.contact .right form .button-area {
+    display: flex;
+    align-items: center;
+}
+
+.right form .button-area button {
+    color: #fff;
+    display: block;
+    width: 160px !important;
+    height: 45px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-wrap: nowrap;
+    background: blue;
+    border: 2px solid blue;
+    transition: all 0.3s ease;
+}
+
+.right form .button-area button:hover {
+    color: blue;
+    background: none;
+}
+
+/* footer section styling */
+footer {
+    background: #111;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+
+footer span a {
+    color: blue;
+    text-decoration: none;
+}
+
+footer span a:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================================================
+   RESPONSIVE MEDIA QUERIES
+   Breakpoints:
+     1440px+  — large desktop (default styles handle this)
+     1104px   — laptop / large tablet landscape
+     991px    — tablet landscape
+     947px    — tablet portrait / hamburger nav triggers
+     690px    — large mobile / small tablet
+     480px    — standard mobile
+     360px    — small mobile
+   ============================================================= */
+
+/* ── 1104px — laptop / large tablet landscape ─────────────── */
+@media (max-width: 1104px) {
+    .max-width {
+        padding: 0 60px;
+    }
+
+    /* About image: shrinks proportionally, no overflow */
+    .about .about-content .left {
+        width: 40%;
+    }
+
+    .about .about-content .right {
+        width: 58%;
+    }
+}
+
+/* ── 991px — tablet landscape ─────────────────────────────── */
+@media (max-width: 991px) {
+    .max-width {
+        padding: 0 50px;
+    }
+
+    /* Resume viewer — reduce height for tablet */
+    .resume-object {
+        height: 600px;
+    }
+}
+
+/* ── 947px — tablet portrait / hamburger nav ──────────────── */
+@media (max-width: 947px) {
+
+    /* --- Nav --- */
+    .menu-btn {
+        display: block;
+        z-index: 1000;
+        /* Ensure 44px minimum touch target */
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menu-btn i.active:before {
+        content: "\f00d";
+    }
+
+    .navbar .menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+        /* Prevent menu content itself from scrolling horizontally */
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .navbar .menu.active {
+        left: 0;
+    }
+
+    .navbar .menu li {
+        display: block;
+    }
+
+    .navbar .menu li a {
+        display: inline-block;
+        margin: 16px 0;
+        font-size: 24px;
+        /* Comfortable touch target height */
+        padding: 4px 20px;
+        min-height: 44px;
+        line-height: 36px;
+    }
+
+    /* --- Home --- */
+    .home {
+        /* Disable fixed parallax on touch devices — avoids iOS blank/flicker */
+        background-attachment: scroll;
+        /* Reduce excessive height */
+        height: 100vh;
+        min-height: 480px;
+    }
+
+    .home .home-content .text-1 {
+        font-size: 22px;
+    }
+
+    .home .home-content .text-2 {
+        font-size: 65px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 34px;
+    }
+
+    .home .home-content a {
+        font-size: 22px;
+        padding: 10px 28px;
+    }
+
+    .max-width {
+        max-width: 930px;
+    }
+
+    /* --- Section titles --- */
+    section .title {
+        font-size: 34px;
+    }
+
+    /* --- About --- */
+    .about .about-content .column {
+        width: 100%;
+    }
+
+    .about .about-content .left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 40px;
+    }
+
+    .about .about-content .right {
+        width: 100%;
+        flex: unset;
+    }
+
+    /* --- Projects & Certs — identical 2-col grid --- */
+    .projects .proj-content .card,
+    .certs .certs-content .card {
+        width: calc(50% - 13px);
+    }
+
+    /* --- Skills --- */
+    .skills .skills-content .column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .skills .skills-content .column.skill-categories {
+        width: 100%;
+    }
+
+    /* --- Contact --- */
+    .contact .contact-content .column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    /* Remove bottom margin from last column */
+    .contact .contact-content .column:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ── 690px — large mobile / small tablet ─────────────────── */
+@media (max-width: 690px) {
+    section {
+        padding: 70px 0;
+    }
+
+    .max-width {
+        padding: 0 20px;
+    }
+
+    /* --- Section titles --- */
+    section .title {
+        font-size: 28px;
+        margin-bottom: 45px;
+    }
+
+    section .title::after {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    /* --- Home --- */
+    .home {
+        background-attachment: scroll;
+        height: auto;
+        min-height: 100svh;
+        padding: 120px 0 60px;
+    }
+
+    .home .home-content .text-1 {
+        font-size: 18px;
+    }
+
+    .home .home-content .text-2 {
+        font-size: 52px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 28px;
+    }
+
+    .home .home-content a {
+        font-size: 18px;
+        padding: 10px 24px;
+        min-height: 44px;
+    }
+
+    /* --- About --- */
+    .about .about-content .right .text {
+        font-size: 22px;
+    }
+
+    /* --- Projects & Certs — single column --- */
+    .projects .proj-content .card,
+    .certs .certs-content .card {
+        width: 100%;
+    }
+
+    /* --- Contact form — stack name+email vertically --- */
+    .contact .right form .fields {
+        flex-direction: column;
+    }
+
+    .contact .right form .name,
+    .contact .right form .email {
+        margin: 0;
+    }
+
+    .contact .right form .field input,
+    .contact .right form .textarea textarea {
+        font-size: 16px; /* Prevents iOS auto-zoom on focus */
+    }
+
+    /* --- Resume — hide inline viewer, show fallback link --- */
+    .resume-viewer {
+        display: none;
+    }
+
+    .resume-mobile-fallback {
+        display: flex;
+    }
+
+    .resume-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* --- Hire page --- */
+    .inquiry-container {
+        padding: 28px 20px 24px;
+        border-radius: 12px;
+    }
+
+    .inquiry-body {
+        padding: 20px 16px;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+
+    .back-btn {
+        /* Move out of absolute so it doesn't overlap container on small screens */
+        position: relative;
+        top: auto;
+        left: auto;
+        display: inline-flex;
+        margin-bottom: 16px;
+    }
+
+    .inquiry-header h2 {
+        font-size: 26px;
+    }
+}
+
+/* ── 480px — standard mobile ──────────────────────────────── */
+@media (max-width: 480px) {
+
+    /* --- Home --- */
+    .home .home-content .text-2 {
+        font-size: 42px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 24px;
+    }
+
+    /* --- About --- */
+    .about .about-content .right .text,
+    .skills .skills-content .left .text {
+        font-size: 18px;
+    }
+
+    /* --- Contact form submit button — full width for easy tapping --- */
+    .right form .button-area button {
+        width: 100% !important;
+    }
+
+    /* --- Scroll up button — smaller on mobile --- */
+    .scroll-up-btn {
+        right: 12px;
+        bottom: 12px;
+        height: 40px;
+        width: 38px;
+        font-size: 22px;
+        line-height: 40px;
+    }
+
+    /* --- Hire page form inputs — comfortable touch targets --- */
+    .form-control {
+        padding: 14px 14px 14px 44px;
+        font-size: 16px; /* Prevents iOS auto-zoom */
+    }
+
+    .submit-btn {
+        padding: 16px;
+        font-size: 15px;
+        min-height: 48px;
+    }
+}
+
+/* ── 360px — small / older phones ────────────────────────── */
+@media (max-width: 360px) {
+    .max-width {
+        padding: 0 14px;
+    }
+
+    .home .home-content .text-2 {
+        font-size: 36px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 21px;
+    }
+
+    .navbar .logo a {
+        font-size: 28px;
+    }
+
+    section .title {
+        font-size: 24px;
+    }
+
+    .projects .proj-content .card,
+    .certs .certs-content .card {
+        padding: 24px 16px;
+    }
+
+    .inquiry-container {
+        padding: 24px 14px 20px;
+    }
+}
+
+/* ── Touch devices: disable fixed parallax globally ─────── */
+@media (hover: none) and (pointer: coarse) {
+    .home {
+        background-attachment: scroll;
+    }
+}
+
+/* Hire Inquiry Page Styles */
+.inquiry-body {
+    background: linear-gradient(135deg, #0f0f16 0%, #1e1e2f 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.inquiry-container {
+    background: rgba(30, 30, 45, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    position: relative;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.inquiry-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inquiry-header h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.inquiry-header h2 span {
+    color: #1d4ed8;
+}
+
+.inquiry-header p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    color: #1d4ed8;
+    transform: translateX(-3px);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group i {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #666;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #1d4ed8;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(29, 78, 216, 0.2);
+}
+
+.form-control:focus + i {
+    color: #1d4ed8;
+}
+
+textarea.form-control {
+    resize: none;
+    height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1d4ed8;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(29, 78, 216, 0.3);
+}
+
+.submit-btn:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Modal styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-modal {
+    background: #1e1e2f;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .success-modal {
+    transform: scale(1);
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 3px solid #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #10b981;
+    font-size: 32px;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-modal h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.success-modal p {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.close-modal-btn {
+    padding: 10px 25px;
+    background: #10b981;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   CV Preview Modal
+   ======================================== */
+.cv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.cv-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cv-modal {
+    background: #fff;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.cv-modal-overlay.active .cv-modal {
+    transform: scale(1) translateY(0);
+}
+
+/* Modal header toolbar */
+.cv-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #111;
+    flex-shrink: 0;
+}
+
+.cv-modal-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.cv-modal-title i {
+    color: #ef4444;
+    font-size: 18px;
+}
+
+.cv-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cv-modal-dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1d4ed8;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+    border: 1.5px solid #1d4ed8;
+}
+
+.cv-modal-dl:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+}
+
+.cv-modal-close {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.cv-modal-close:hover {
+    background: rgba(239, 68, 68, 0.8);
+    border-color: transparent;
+    transform: rotate(90deg);
+}
+
+/* iframe area */
+.cv-modal-body {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    background: #e5e7eb;
+}
+
+.cv-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    border: none;
+    display: block;
+}
+
+/* Fallback shown via JS if iframe errors */
+.cv-iframe-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 30px;
+    text-align: center;
+    color: #6b7280;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cv-iframe-fallback i {
+    font-size: 52px;
+    color: #ef4444;
+}
+
+.cv-iframe-fallback p {
+    font-size: 15px;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+.cv-iframe-fallback.show {
+    display: flex;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cv-action-row {
+        flex-direction: column;
+    }
+    .cv-btn {
+        justify-content: center;
+    }
+    .cv-modal {
+        max-height: 96vh;
+    }
+    .cv-modal-body iframe {
+        min-height: 400px;
+    }
+    .cv-modal-title {
+        font-size: 13px;
+    }
+}
+
+/* =============================================
+   Global .cert-btn  (reused by About & Resume)
+   ============================================= */
+.cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 2px solid #1d4ed8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.cert-btn:hover {
+    background: transparent;
+    color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
+}
+
+/* Outline variant used in About section "View Resume" */
+.cert-btn-outline {
+    background: transparent;
+    color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.cert-btn-outline:hover {
+    background: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
+}
+
+/* About section CV action row */
+.about-cv-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* =============================================
+   Resume Section
+   ============================================= */
+.resume {
+    background: #111;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.resume .title::before {
+    background: #fff;
+}
+
+.resume .title::after {
+    content: "my résumé";
+    background: #111;
+    color: #1d4ed8;
+}
+
+.resume-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Toolbar row: date badge on the left, download button on the right */
+.resume-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Reuse .date badge styling from Certifications, but override colours for dark bg */
+.resume-toolbar .date {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: rgba(29, 78, 216, 0.15);
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+.resume-toolbar .date i {
+    font-size: 12px;
+    color: #1d4ed8;
+}
+
+/* PDF viewer wrapper */
+.resume-viewer {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #222;
+    background: #222;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* The <object> and inner <iframe> both use this class */
+.resume-object {
+    width: 100%;
+    height: 780px;
+    min-height: 500px;
+    border: none;
+    display: block;
+}
+
+/* Shown only when the embed genuinely cannot render */
+.resume-no-support {
+    padding: 40px;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Mobile fallback card — hidden on desktop/tablet */
+.resume-mobile-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 50px 24px;
+    background: #222;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #333;
+}
+
+.resume-mobile-fallback i {
+    font-size: 52px;
+    color: #ef4444;
+}
+
+.resume-mobile-fallback p {
+    font-size: 14px;
+    color: #aaa;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+/* ── Responsive: Resume section ──────────────── */
+
+/* At 991px tablet breakpoint — keep viewer but shrink height */
+@media (max-width: 991px) {
+    .resume-object {
+        height: 620px;
+    }
+}
+
+/* At 690px mobile breakpoint — hide viewer, show fallback card */
+@media (max-width: 690px) {
+    .resume-viewer {
+        display: none;
+    }
+
+    .resume-mobile-fallback {
+        display: flex;
+    }
+
+    .about-cv-row {
+        flex-direction: column;
+    }
+
+    .about-cv-row .cert-btn {
+        justify-content: center;
+        text-align: center;
+    }
+}
