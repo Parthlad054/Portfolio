@@ -1,54 +1,60 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
+if (typeof $ !== 'undefined') {
+$(document).ready(function () {
+    $(window).scroll(function () {
         // sticky navbar on scroll script
-        if(window.scrollY > 20){
+        if (window.scrollY > 20) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        
+
         // scroll-up button show/hide script
-        if(window.scrollY > 500){
+        if (window.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
     // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html, body').animate({scrollTop: 0});
+    $('.scroll-up-btn').click(function () {
+        $('html, body').animate({ scrollTop: 0 });
         // removing smooth scroll on slide-up button click
         $('html, body').css("scrollBehavior", "auto");
     });
 
-    $('.navbar .menu li a').click(function(){
+    $('.navbar .menu li a').click(function () {
         // applying again smooth scroll on menu items click
         $('html, body').css("scrollBehavior", "smooth");
     });
 
     // toggle menu/navbar script
-    $('.menu-btn').click(function(){
+    $('.menu-btn').click(function () {
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
     // typing text animation script
+    if (document.querySelector('.typing')) {
     const typed1 = new Typed(".typing", {
         strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
+    }
 
+    if (document.querySelector('.typing-2')) {
     const typed2 = new Typed(".typing-2", {
         strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
+    }
 
     // owl carousel script
+    if (document.querySelector('.carousel')) {
     $('.carousel').owlCarousel({
         margin: 20,
         loop: true,
@@ -56,22 +62,24 @@ $(document).ready(function(){
         autoplayTimeOut: 2000,
         autoplayHoverPause: true,
         responsive: {
-            0:{
+            0: {
                 items: 1,
                 nav: false
             },
-            600:{
+            600: {
                 items: 2,
                 nav: false
             },
-            1000:{
+            1000: {
                 items: 3,
                 nav: false
             }
         }
     });
+    }
 
 });
+}
 
 /* Single source of truth for the Web3Forms API key.
    Update here only if you rotate the key. */
@@ -85,50 +93,52 @@ function handleContactSubmit(event) {
     event.preventDefault();
 
     var form = document.getElementById('contactForm');
-    var btn  = document.getElementById('contactSubmitBtn');
-    var msg  = document.getElementById('contactFormMsg');
+    var btn = document.getElementById('contactSubmitBtn');
+    var msg = document.getElementById('contactFormMsg');
 
     // Loading state
-    btn.disabled    = true;
+    btn.disabled = true;
     btn.textContent = 'Sending…';
     msg.style.display = 'none';
 
     var data = {
-        access_key:      WEB3FORMS_KEY,
-        subject:         'New Contact Message – Portfolio',
-        name:            form.querySelector('[name="name"]').value,
-        email:           form.querySelector('[name="email"]').value,
+        access_key: WEB3FORMS_KEY,
+        subject: 'New Contact Message - Portfolio',
+        name: form.querySelector('[name="name"]').value,
+        email: form.querySelector('[name="email"]').value,
         message_subject: form.querySelector('[name="message_subject"]').value,
-        message:         form.querySelector('[name="message"]').value
+        message: form.querySelector('[name="message"]').value
     };
 
     fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body:    JSON.stringify(data)
+        body: JSON.stringify(data)
     })
-    .then(function(res)  { return res.json(); })
-    .then(function(json) {
-        if (json.success) {
-            form.reset();
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+            if (json.success) {
+                form.reset();
+                msg.style.display = 'block';
+                msg.style.color = '#4CAF50';
+                msg.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
+            } else {
+                console.error('Web3Forms error:', json);
+                msg.style.display = 'block';
+                msg.style.color = '#e74c3c';
+                msg.textContent = 'Something went wrong. Please email me directly at parthlad4125@gmail.com';
+            }
+        })
+        .catch(function (err) {
+            console.error('Web3Forms fetch error:', err);
             msg.style.display = 'block';
-            msg.style.color   = '#4CAF50';
-            msg.textContent   = '✓ Message sent! I\'ll get back to you within 24 hours.';
-        } else {
-            msg.style.display = 'block';
-            msg.style.color   = '#e74c3c';
-            msg.textContent   = 'Something went wrong. Please email me directly at parthlad4125@gmail.com';
-        }
-    })
-    .catch(function() {
-        msg.style.display = 'block';
-        msg.style.color   = '#e74c3c';
-        msg.textContent   = 'Network error. Please email me directly at parthlad4125@gmail.com';
-    })
-    .finally(function() {
-        btn.disabled    = false;
-        btn.textContent = 'Send message';
-    });
+            msg.style.color = '#e74c3c';
+            msg.textContent = 'Network error. Please email me directly at parthlad4125@gmail.com';
+        })
+        .finally(function () {
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+        });
 }
 
 /* =========================================================
@@ -139,8 +149,8 @@ function handleContactSubmit(event) {
 function handleInquirySubmit(event) {
     event.preventDefault();
 
-    var form   = document.getElementById('inquiryForm');
-    var btn    = form.querySelector('button[type="submit"]');
+    var form = document.getElementById('inquiryForm');
+    var btn = form.querySelector('button[type="submit"]');
 
     // Create the error message element once if it doesn't exist yet
     var errMsg = document.getElementById('inquiryErrMsg');
@@ -153,42 +163,44 @@ function handleInquirySubmit(event) {
     errMsg.style.display = 'none';
 
     // Loading state
-    btn.disabled    = true;
+    btn.disabled = true;
     btn.textContent = 'Sending…';
 
     var data = {
-        access_key:   WEB3FORMS_KEY,
-        subject:      'New Hire Inquiry – Portfolio',
-        name:         document.getElementById('name').value,
+        access_key: WEB3FORMS_KEY,
+        subject: 'New Hire Inquiry - Portfolio',
+        name: document.getElementById('name').value,
         project_name: document.getElementById('project_name').value,
-        email:        document.getElementById('email').value,
-        phone:        document.getElementById('phone').value,
-        message:      document.getElementById('requirements').value
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('requirements').value
     };
 
     fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body:    JSON.stringify(data)
+        body: JSON.stringify(data)
     })
-    .then(function(res)  { return res.json(); })
-    .then(function(json) {
-        if (json.success) {
-            // Show the existing success modal
-            document.getElementById('modalOverlay').classList.add('active');
-        } else {
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+            if (json.success) {
+                // Show the existing success modal
+                document.getElementById('modalOverlay').classList.add('active');
+            } else {
+                console.error('Web3Forms error:', json);
+                errMsg.style.display = 'block';
+                errMsg.textContent = 'Something went wrong. Please email me directly at parthlad4125@gmail.com';
+            }
+        })
+        .catch(function (err) {
+            console.error('Web3Forms fetch error:', err);
             errMsg.style.display = 'block';
-            errMsg.textContent   = 'Something went wrong. Please email me directly at parthlad4125@gmail.com';
-        }
-    })
-    .catch(function() {
-        errMsg.style.display = 'block';
-        errMsg.textContent   = 'Network error. Please email me directly at parthlad4125@gmail.com';
-    })
-    .finally(function() {
-        btn.disabled    = false;
-        btn.textContent = 'Send Inquiry';
-    });
+            errMsg.textContent = 'Network error. Please email me directly at parthlad4125@gmail.com';
+        })
+        .finally(function () {
+            btn.disabled = false;
+            btn.textContent = 'Send Inquiry';
+        });
 }
 
 function closeSuccessModal() {
