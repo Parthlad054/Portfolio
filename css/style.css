@@ -201,7 +201,7 @@ section .title::after {
 /* home section styling */
 .home {
     display: flex;
-    background: url("../images/backpic.jpg") no-repeat center;
+    background: url("../images/Background.png") no-repeat center;
     height: 150vh;
     color: #0e0404ce;
     min-height: 400px;
@@ -766,8 +766,15 @@ section .title::after {
 }
 
 @keyframes pulse-green {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
-    50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1);
+    }
 }
 
 .avail-label {
@@ -1195,7 +1202,8 @@ footer span a:hover {
 
     .contact .right form .field input,
     .contact .right form .textarea textarea {
-        font-size: 16px; /* Prevents iOS auto-zoom on focus */
+        font-size: 16px;
+        /* Prevents iOS auto-zoom on focus */
     }
 
     /* --- Resume — hide inline viewer, show fallback link --- */
@@ -1275,7 +1283,8 @@ footer span a:hover {
     /* --- Hire page form inputs — comfortable touch targets --- */
     .form-control {
         padding: 14px 14px 14px 44px;
-        font-size: 16px; /* Prevents iOS auto-zoom */
+        font-size: 16px;
+        /* Prevents iOS auto-zoom */
     }
 
     .submit-btn {
@@ -1356,6 +1365,7 @@ footer span a:hover {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1435,7 +1445,7 @@ footer span a:hover {
     box-shadow: 0 0 10px rgba(29, 78, 216, 0.2);
 }
 
-.form-control:focus + i {
+.form-control:focus+i {
     color: #1d4ed8;
 }
 
@@ -1527,6 +1537,7 @@ textarea.form-control {
     from {
         transform: scale(0);
     }
+
     to {
         transform: scale(1);
     }
@@ -1658,8 +1669,8 @@ textarea.form-control {
 }
 
 .cv-modal-close {
-    background: rgba(255,255,255,0.1);
-    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     color: #fff;
     width: 34px;
     height: 34px;
@@ -1727,15 +1738,19 @@ textarea.form-control {
     .cv-action-row {
         flex-direction: column;
     }
+
     .cv-btn {
         justify-content: center;
     }
+
     .cv-modal {
         max-height: 96vh;
     }
+
     .cv-modal-body iframe {
         min-height: 400px;
     }
+
     .cv-modal-title {
         font-size: 13px;
     }
