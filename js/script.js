@@ -172,7 +172,7 @@ function handleInquirySubmit(event) {
         name: document.getElementById('name').value,
         project_name: document.getElementById('project_name').value,
         email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
+        phone: (document.getElementById('country_code') ? document.getElementById('country_code').value + ' ' : '') + document.getElementById('phone').value,
         message: document.getElementById('requirements').value
     };
 
@@ -207,3 +207,54 @@ function closeSuccessModal() {
     document.getElementById('modalOverlay').classList.remove('active');
     document.getElementById('inquiryForm').reset();
 }
+
+// Phone number validation logic based on country code
+document.addEventListener("DOMContentLoaded", function () {
+    var countryCodeSelect = document.getElementById('country_code');
+    var phoneInput = document.getElementById('phone');
+
+    if (countryCodeSelect && phoneInput) {
+        var updatePhoneValidation = function () {
+            var country = countryCodeSelect.value;
+            var pattern = "";
+            var title = "";
+
+            switch (country) {
+                case "+91": // India
+                    pattern = "[0-9]{10}";
+                    title = "Please enter exactly 10 digits for an Indian phone number";
+                    break;
+                case "+1": // USA
+                    pattern = "[0-9]{10}";
+                    title = "Please enter exactly 10 digits for a US phone number";
+                    break;
+                case "+44": // UK
+                    pattern = "[0-9]{10,11}";
+                    title = "Please enter 10 or 11 digits for a UK phone number";
+                    break;
+                case "+61": // Australia
+                    pattern = "[0-9]{9}";
+                    title = "Please enter exactly 9 digits for an Australian phone number";
+                    break;
+                case "+81": // Japan
+                    pattern = "[0-9]{10,11}";
+                    title = "Please enter 10 or 11 digits for a Japanese phone number";
+                    break;
+                default:
+                    pattern = "[0-9]{7,15}";
+                    title = "Please enter a valid phone number containing 7 to 15 digits";
+            }
+
+            phoneInput.setAttribute("pattern", pattern);
+            phoneInput.setAttribute("title", title);
+        };
+
+        // Initialize on load
+        updatePhoneValidation();
+
+        // Update on change
+        countryCodeSelect.addEventListener("change", function () {
+            updatePhoneValidation();
+        });
+    }
+});
