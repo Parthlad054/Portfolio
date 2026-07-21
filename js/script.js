@@ -1,84 +1,84 @@
 if (typeof $ !== 'undefined') {
-$(document).ready(function () {
-    $(window).scroll(function () {
-        // sticky navbar on scroll script
-        if (window.scrollY > 20) {
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
-        }
-
-        // scroll-up button show/hide script
-        if (window.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // slide-up script
-    $('.scroll-up-btn').click(function () {
-        $('html, body').animate({ scrollTop: 0 });
-        // removing smooth scroll on slide-up button click
-        $('html, body').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function () {
-        // applying again smooth scroll on menu items click
-        $('html, body').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function () {
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    // typing text animation script
-    if (document.querySelector('.typing')) {
-    const typed1 = new Typed(".typing", {
-        strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-    }
-
-    if (document.querySelector('.typing-2')) {
-    const typed2 = new Typed(".typing-2", {
-        strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-    }
-
-    // owl carousel script
-    if (document.querySelector('.carousel')) {
-    $('.carousel').owlCarousel({
-        margin: 20,
-        loop: true,
-        autoplay: true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 2,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: false
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            // sticky navbar on scroll script
+            if (window.scrollY > 20) {
+                $('.navbar').addClass("sticky");
+            } else {
+                $('.navbar').removeClass("sticky");
             }
-        }
-    });
-    }
 
-});
+            // scroll-up button show/hide script
+            if (window.scrollY > 500) {
+                $('.scroll-up-btn').addClass("show");
+            } else {
+                $('.scroll-up-btn').removeClass("show");
+            }
+        });
+
+        // slide-up script
+        $('.scroll-up-btn').click(function () {
+            $('html, body').animate({ scrollTop: 0 });
+            // removing smooth scroll on slide-up button click
+            $('html, body').css("scrollBehavior", "auto");
+        });
+
+        $('.navbar .menu li a').click(function () {
+            // applying again smooth scroll on menu items click
+            $('html, body').css("scrollBehavior", "smooth");
+        });
+
+        // toggle menu/navbar script
+        $('.menu-btn').click(function () {
+            $('.navbar .menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        });
+
+        // typing text animation script
+        if (document.querySelector('.typing')) {
+            const typed1 = new Typed(".typing", {
+                strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        }
+
+        if (document.querySelector('.typing-2')) {
+            const typed2 = new Typed(".typing-2", {
+                strings: ["Data Analyst", "Backend Developer", "Freelancer", "AI-ML Developer", "System Designer"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        }
+
+        // owl carousel script
+        if (document.querySelector('.carousel')) {
+            $('.carousel').owlCarousel({
+                margin: 20,
+                loop: true,
+                autoplay: true,
+                autoplayTimeOut: 2000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: false
+                    }
+                }
+            });
+        }
+
+    });
 }
 
 /* Single source of truth for the Web3Forms API key.
@@ -207,6 +207,70 @@ function closeSuccessModal() {
     document.getElementById('modalOverlay').classList.remove('active');
     document.getElementById('inquiryForm').reset();
 }
+
+/* =========================================================
+   IT Asset Management System — NDA Notice Popup
+   Shows a confidentiality notice for 10 s, then opens the PDF.
+   The user can dismiss it early with the × button.
+   ========================================================= */
+(function () {
+    var ndaTimer = null;
+    var ndaInterval = null;
+
+    window.openIMTSProject = function (event) {
+        if (event) event.preventDefault();
+
+        var overlay = document.getElementById('ndaOverlay');
+        var fill = document.getElementById('ndaTimerFill');
+        var countdown = document.getElementById('ndaCountdown');
+        if (!overlay) return;
+
+        // Reset timer UI
+        var seconds = 10;
+        if (fill) { fill.style.transition = 'none'; fill.style.width = '100%'; }
+        if (countdown) countdown.textContent = seconds;
+
+        // Show the overlay
+        overlay.classList.add('active');
+
+        // Kick off the shrink animation after a brief paint flush
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                if (fill) { fill.style.transition = 'width 10s linear'; fill.style.width = '0%'; }
+            });
+        });
+
+        // Tick down the counter every second
+        ndaInterval = setInterval(function () {
+            seconds -= 1;
+            if (countdown) countdown.textContent = seconds;
+            if (seconds <= 0) clearInterval(ndaInterval);
+        }, 1000);
+
+        // Auto-open PDF after 10 s
+        ndaTimer = setTimeout(function () {
+            closeNDAPopup();
+            window.open('IMTS_Project.pdf', '_blank');
+        }, 10000);
+    };
+
+    window.closeNDAPopup = function () {
+        var overlay = document.getElementById('ndaOverlay');
+        if (overlay) overlay.classList.remove('active');
+        if (ndaTimer) { clearTimeout(ndaTimer); ndaTimer = null; }
+        if (ndaInterval) { clearInterval(ndaInterval); ndaInterval = null; }
+    };
+
+    // Allow closing by clicking the dark backdrop
+    document.addEventListener('DOMContentLoaded', function () {
+        var overlay = document.getElementById('ndaOverlay');
+        if (overlay) {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeNDAPopup();
+            });
+        }
+    });
+}());
 
 // Phone number validation logic based on country code
 document.addEventListener("DOMContentLoaded", function () {

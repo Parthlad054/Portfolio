@@ -133,7 +133,8 @@
                             <span>Groq LLM</span>
                             <span>Conversational AI</span>
                         </div>
-                        <a href="https://github.com/Parthlad054/hcp-crm-ai" target="_blank" rel="noopener noreferrer" class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Parthlad054/hcp-crm-ai" target="_blank" rel="noopener noreferrer"
+                            class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="card">
@@ -149,7 +150,7 @@
                             <span>PostgreSQL</span>
                             <span>JWT</span>
                         </div>
-                        <a href="#" class="cert-btn">View project details <i class="fas fa-info-circle"></i></a>
+                        <a href="#" class="cert-btn" onclick="openIMTSProject(event)">View project details <i class="fas fa-info-circle"></i></a>
                     </div>
                 </div>
                 <div class="card">
@@ -178,7 +179,9 @@
                             <span>Power BI</span>
                             <span>Data Analysis</span>
                         </div>
-                        <a href="https://github.com/Parthlad054/Power-BI-Dashboard--Social-Media-Sentiment-Engagement-Dashboard" target="_blank" rel="noopener noreferrer" class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Parthlad054/Power-BI-Dashboard--Social-Media-Sentiment-Engagement-Dashboard"
+                            target="_blank" rel="noopener noreferrer" class="cert-btn">View project on Github <i
+                                class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="card">
@@ -193,7 +196,9 @@
                             <span>Scikit-Learn</span>
                             <span>Flask</span>
                         </div>
-                        <a href="https://github.com/Parthlad054/-Hiring-Outcome-Prediction" target="_blank" rel="noopener noreferrer" class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Parthlad054/-Hiring-Outcome-Prediction" target="_blank"
+                            rel="noopener noreferrer" class="cert-btn">View project on Github <i
+                                class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="card">
@@ -207,7 +212,8 @@
                             <span>Telegram</span>
                             <span>NLP</span>
                         </div>
-                        <a href="https://github.com/Parthlad054/NYAY-BOT" target="_blank" rel="noopener noreferrer" class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Parthlad054/NYAY-BOT" target="_blank" rel="noopener noreferrer"
+                            class="cert-btn">View project on Github <i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
@@ -362,7 +368,7 @@
 
                 <!-- Toolbar: date badge + download button -->
                 <div class="resume-toolbar">
-                    <span class="date"><i class="fas fa-history"></i>&nbsp; Last updated: June 2026</span>
+                    <span class="date"><i class="fas fa-history"></i>&nbsp; Last updated: July 2026</span>
                     <a href="Parth_Lad.pdf" download class="cert-btn">
                         <i class="fas fa-download"></i> Download PDF
                     </a>
@@ -482,6 +488,28 @@
             </div>
         </div>
     </section>
+
+    <!-- NDA Notice Popup Modal -->
+    <div id="ndaOverlay" class="nda-overlay" role="dialog" aria-modal="true" aria-labelledby="ndaTitle">
+        <div class="nda-popup">
+            <button id="ndaCloseBtn" class="nda-close-btn" onclick="closeNDAPopup()" aria-label="Close notice">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="nda-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 id="ndaTitle" class="nda-title">Confidentiality Notice</h3>
+            <p class="nda-message">
+                <strong>Note:</strong> This project was built during a professional internship. Actual source code,
+                live credentials, and production data are confidential as per company NDA. This document is a
+                summary report for portfolio purposes only.
+            </p>
+            <div class="nda-timer-bar">
+                <div class="nda-timer-fill" id="ndaTimerFill"></div>
+            </div>
+            <p class="nda-timer-label">Opening document in <span id="ndaCountdown">10</span>s&hellip;</p>
+        </div>
+    </div>
 
     <script src="js/script.js?v=2"></script>
 </body>
