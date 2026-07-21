@@ -368,7 +368,7 @@ section .title::after {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .projects .proj-content .card:hover .box {
@@ -387,9 +387,9 @@ section .title::after {
 }
 
 .projects .proj-content .card .text {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .projects .proj-content .card p {
@@ -405,11 +405,11 @@ section .title::after {
 }
 
 .projects .proj-content .card .tech-stack {
-    margin-top: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+    margin-bottom: 18px;
 }
 
 .projects .proj-content .card .tech-stack span {
@@ -596,7 +596,8 @@ section .title::after {
     background: #fff;
 }
 
-.certs .certs-content .card .cert-btn {
+.certs .certs-content .card .cert-btn,
+.projects .proj-content .card .cert-btn {
     display: inline-block;
     margin-top: auto;
     padding: 8px 18px;
@@ -610,13 +611,15 @@ section .title::after {
     border: 2px solid #1d4ed8;
 }
 
-.certs .certs-content .card:hover .cert-btn {
+.certs .certs-content .card:hover .cert-btn,
+.projects .proj-content .card:hover .cert-btn {
     background: #fff;
     color: #1d4ed8;
     border-color: #fff;
 }
 
-.certs .certs-content .card .cert-btn i {
+.certs .certs-content .card .cert-btn i,
+.projects .proj-content .card .cert-btn i {
     font-size: 11px;
     color: inherit;
     background: none;
@@ -626,7 +629,8 @@ section .title::after {
     display: inline;
 }
 
-.certs .certs-content .card:hover .cert-btn i {
+.certs .certs-content .card:hover .cert-btn i,
+.projects .proj-content .card:hover .cert-btn i {
     background: none;
     color: inherit;
 }
