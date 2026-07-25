@@ -166,7 +166,7 @@
                             <span>PyTorch</span>
                             <span>HuggingFace</span>
                         </div>
-                        <a href="#" class="cert-btn">View project details <i class="fas fa-info-circle"></i></a>
+                        <a href="#" class="cert-btn" onclick="openMindBridgeProject(event)">View project details <i class="fas fa-info-circle"></i></a>
                     </div>
                 </div>
                 <div class="card">
@@ -489,7 +489,7 @@
         </div>
     </section>
 
-    <!-- NDA Notice Popup Modal -->
+    <!-- NDA Notice Popup Modal — IMTS Project -->
     <div id="ndaOverlay" class="nda-overlay" role="dialog" aria-modal="true" aria-labelledby="ndaTitle">
         <div class="nda-popup">
             <button id="ndaCloseBtn" class="nda-close-btn" onclick="closeNDAPopup()" aria-label="Close notice">
@@ -508,6 +508,28 @@
                 <div class="nda-timer-fill" id="ndaTimerFill"></div>
             </div>
             <p class="nda-timer-label">Opening document in <span id="ndaCountdown">10</span>s&hellip;</p>
+        </div>
+    </div>
+
+    <!-- Project Summary Popup Modal — MindBridge AI Chatbot -->
+    <div id="mindBridgeOverlay" class="nda-overlay" role="dialog" aria-modal="true" aria-labelledby="mindBridgeTitle">
+        <div class="nda-popup">
+            <button class="nda-close-btn" onclick="closeMindBridgePopup()" aria-label="Close notice">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="nda-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h3 id="mindBridgeTitle" class="nda-title">MindBridge AI Chatbot</h3>
+            <p class="nda-message">
+                <strong>Note:</strong> This project was built during a professional internship. Actual source code,
+                live credentials, and production data are confidential as per company NDA. This document is a
+                summary report for portfolio purposes only.
+            </p>
+            <div class="nda-timer-bar">
+                <div class="nda-timer-fill" id="mindBridgeTimerFill"></div>
+            </div>
+            <p class="nda-timer-label">Opening document in <span id="mindBridgeCountdown">6</span>s&hellip;</p>
         </div>
     </div>
 

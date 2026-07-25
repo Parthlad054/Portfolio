@@ -272,6 +272,70 @@ function closeSuccessModal() {
     });
 }());
 
+/* =========================================================
+   MindBridge AI Chatbot — Project Summary Popup
+   Shows a brief popup for 6 s (no notes), then opens the PDF.
+   The user can dismiss it early with the × button.
+   ========================================================= */
+(function () {
+    var mbTimer = null;
+    var mbInterval = null;
+
+    window.openMindBridgeProject = function (event) {
+        if (event) event.preventDefault();
+
+        var overlay = document.getElementById('mindBridgeOverlay');
+        var fill = document.getElementById('mindBridgeTimerFill');
+        var countdown = document.getElementById('mindBridgeCountdown');
+        if (!overlay) return;
+
+        // Reset timer UI
+        var seconds = 6;
+        if (fill) { fill.style.transition = 'none'; fill.style.width = '100%'; }
+        if (countdown) countdown.textContent = seconds;
+
+        // Show the overlay
+        overlay.classList.add('active');
+
+        // Kick off the shrink animation after a brief paint flush
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                if (fill) { fill.style.transition = 'width 6s linear'; fill.style.width = '0%'; }
+            });
+        });
+
+        // Tick down the counter every second
+        mbInterval = setInterval(function () {
+            seconds -= 1;
+            if (countdown) countdown.textContent = seconds;
+            if (seconds <= 0) clearInterval(mbInterval);
+        }, 1000);
+
+        // Auto-open PDF after 6 s
+        mbTimer = setTimeout(function () {
+            closeMindBridgePopup();
+            window.open('MindBridge_Project_Summary.pdf', '_blank');
+        }, 6000);
+    };
+
+    window.closeMindBridgePopup = function () {
+        var overlay = document.getElementById('mindBridgeOverlay');
+        if (overlay) overlay.classList.remove('active');
+        if (mbTimer) { clearTimeout(mbTimer); mbTimer = null; }
+        if (mbInterval) { clearInterval(mbInterval); mbInterval = null; }
+    };
+
+    // Allow closing by clicking the dark backdrop
+    document.addEventListener('DOMContentLoaded', function () {
+        var overlay = document.getElementById('mindBridgeOverlay');
+        if (overlay) {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeMindBridgePopup();
+            });
+        }
+    });
+}());
+
 // Phone number validation logic based on country code
 document.addEventListener("DOMContentLoaded", function () {
     var countryCodeSelect = document.getElementById('country_code');
